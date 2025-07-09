@@ -1,0 +1,46 @@
+# Maintainer: Your Name <your.email@example.com>
+pkgname=firefox-esr
+pkgver=102.13.0
+pkgrel=1
+pkgdesc="Mozilla Firefox Extended Support Release"
+arch=('x86_64')
+url="https://www.mozilla.org/firefox/enterprise/"
+license=('Mozilla')
+depends=('gtk3' 'libxt' 'alsa-lib' 'nspr' 'nss' 'libx11' 'libxrender' 'libxrandr' 'libxt' 'alsa-lib' 'libpciaccess' 'libvpx' 'hunspell' 'libevent' 'dbus-glib' 'libva' 'libvpx' 'libdbus' 'libpciaccess' 'alsa-lib' 'libevent')
+makedepends=('rust' 'pkgconfig' 'unzip')
+source=("https://archive.mozilla.org/pub/firefox/releases/${pkgver}/linux-x86_64/en-US/firefox-${pkgver}.tar.bz2")
+sha256sums=('SKIP')  # Replace with actual checksum
+
+prepare() {
+  cd "$srcdir"
+  # No special preparation needed
+}
+
+build() {
+  # Firefox is prebuilt, so usually no build step
+  # If building from source, include build commands here
+  return 0
+}
+
+package() {
+  cd "$srcdir"
+  install -d "$pkgdir"/opt/firefox
+  cp -r firefox/* "$pkgdir"/opt/firefox/
+  # Create symlink
+  install -d "$pkgdir"/usr/bin
+  ln -s /opt/firefox/firefox "$pkgdir"/usr/bin/firefox-esr
+  # Optional: add desktop entry
+  cat <<EOF > "$pkgdir"/usr/share/applications/firefox-esr.desktop
+[Desktop Entry]
+Name=Firefox ESR
+Comment=Web Browser
+Exec=/usr/bin/firefox-esr
+Icon=firefox
+Terminal=false
+Type=Application
+Categories=Network;WebBrowser;
+EOF
+  # Optional: install icon
+}
+
+# vim:set ts=2 sw=2 et:
