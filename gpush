@@ -7,9 +7,9 @@ if [[ "$yn" == "Y" || "$yn" == "y" || "$yn" == "Yes" || "$yn" == "YES" || "$yn" 
   else
    git remote add github git@github.com:Sprunglesonthehub/PKGBUILD.git
    git pull
+   git commit -m "Generic Push. Read Commit Code"
+   git push origin main
   fi
- git commit -m "Generic Push. Read Commit Code"
- git push origin main
 else
  exit;
 fi
@@ -24,9 +24,9 @@ if [[ "$yn" == "Y" || "$yn" == "y" || "$yn" == "Yes" || "$yn" == "YES" || "$yn" 
   else
    git remote add gitlab ssh://git@darrengames.ddns.net:2402/sprungles/pkgbuilds.git
    git pull
+   git commit -m "Generic Push. Read Commit Code"
+   git push origin main
   fi
- git commit -m "Generic Push. Read Commit Code"
- git push gitlab main
 else
  exit;
 fi
