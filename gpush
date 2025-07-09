@@ -1,5 +1,6 @@
 read -p "Would you like to push to GitHub?" yn
 if [[ "$yn" == "Y" || "$yn" == "y" || "$yn" == "Yes" || "$yn" == "YES" || "$yn" == "yes" ]] ; then
+ git pull
  git add .
  read -p "Have you already set up the github profile?" y2n
   if [[ "$y2n" == "Y" || "$y2n" == "y" || "$y2n" == "Yes" || "$y2n" == "YES" || "$y2n" == "yes" ]] ; then
