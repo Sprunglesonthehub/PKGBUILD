@@ -1,6 +1,5 @@
 read -p "Would you like to push to GitHub?" yn
 if [[ "$yn" == "Y" || "$yn" == "y" || "$yn" == "Yes" || "$yn" == "YES" || "$yn" == "yes" ]] ; then
- git pull
  git add .
  git commit -m "Generic Push. Read Commit Code"
  git push origin main
