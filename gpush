@@ -1,4 +1,4 @@
-read -p "Would you like to pus to GitHub?" yn
+read -p "Would you like to push to GitHub?" yn
 if [[ "$yn" == "Y" || "$yn" == "y" || "$yn" == "Yes" || "$yn" == "YES" || "$yn" == "yes" ]] ; then
  git pull
  git add .
@@ -8,11 +8,16 @@ else
  exit;
 fi
 
-read -p "Would you like to pus to GitLab?" yn
+read -p "Would you like to push to GitLab?" yn
 if [[ "$yn" == "Y" || "$yn" == "y" || "$yn" == "Yes" || "$yn" == "YES" || "$yn" == "yes" ]] ; then
  git pull
  git add .
- git remote add gitlab ssh://git@darrengames.ddns.net:2402/sprungles/pkgbuilds.git
+ read -p "Have you already set up the gitlab profile?" y1n
+  if [[ "$y1n" == "Y" || "$y1n" == "y" || "$y1n" == "Yes" || "$y1n" == "YES" || "$y1n" == "yes" ]] ; then
+   echo "All good, moving forward"
+  else
+   git remote add gitlab ssh://git@darrengames.ddns.net:2402/sprungles/pkgbuilds.git
+  fi
  git commit -m "Generic Push. Read Commit Code"
  git push gitlab main
 else
