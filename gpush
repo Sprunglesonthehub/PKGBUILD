@@ -1,4 +1,4 @@
-read -p "Would you like to push?" yn
+read -p "Would you like to pus to GitHub?" yn
 if [[ "$yn" == "Y" || "$yn" == "y" || "$yn" == "Yes" || "$yn" == "YES" || "$yn" == "yes" ]] ; then
  git add .
  git commit -m "Generic Push. Read Commit Code"
@@ -6,3 +6,14 @@ if [[ "$yn" == "Y" || "$yn" == "y" || "$yn" == "Yes" || "$yn" == "YES" || "$yn" 
 else
  exit;
 fi
+
+read -p "Would you like to pus to GitLab?" yn
+if [[ "$yn" == "Y" || "$yn" == "y" || "$yn" == "Yes" || "$yn" == "YES" || "$yn" == "yes" ]] ; then
+ git add .
+ git remote add gitlab ssh://git@darrengames.ddns.net:2402/sprungles/pkgbuilds.git
+ git commit -m "Generic Push. Read Commit Code"
+ git push gitlab main
+else
+ exit;
+fi
+
