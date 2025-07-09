@@ -1,5 +1,7 @@
+# This variable is for your GITHUB repo. USE THE SSH VARIANT.
 server1="git@github.com:Sprunglesonthehub/PKGBUILD.git"
 
+# Sequence to put your information up to GitHub :)
 read -p "Would you like to push to GitHub?" yn
 if [[ "$yn" == "Y" || "$yn" == "y" || "$yn" == "Yes" || "$yn" == "YES" || "$yn" == "yes" ]] ; then
  git pull
@@ -17,8 +19,10 @@ else
  exit;
 fi
 
+# This variable is for your GITLAB repo. USE THE SSH VARIANT.
 server="ssh://git@darrengames.ddns.net:2402/sprungles/pkgbuilds.git"
 
+# Sequence to put your information up to GitLab :)
 read -p "Would you like to push to GitLab?" yn
 if [[ "$yn" == "Y" || "$yn" == "y" || "$yn" == "Yes" || "$yn" == "YES" || "$yn" == "yes" ]] ; then
  git pull
