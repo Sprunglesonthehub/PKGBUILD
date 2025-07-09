@@ -1,3 +1,5 @@
+server1="git@github.com:Sprunglesonthehub/PKGBUILD.git"
+
 read -p "Would you like to push to GitHub?" yn
 if [[ "$yn" == "Y" || "$yn" == "y" || "$yn" == "Yes" || "$yn" == "YES" || "$yn" == "yes" ]] ; then
  git pull
@@ -6,7 +8,7 @@ if [[ "$yn" == "Y" || "$yn" == "y" || "$yn" == "Yes" || "$yn" == "YES" || "$yn" 
   if [[ "$y2n" == "Y" || "$y2n" == "y" || "$y2n" == "Yes" || "$y2n" == "YES" || "$y2n" == "yes" ]] ; then
    echo "All good, moving forward"
   else
-   git remote add github git@github.com:Sprunglesonthehub/PKGBUILD.git
+   git remote add github $server1
    git pull
    git commit -m "Generic Push. Read Commit Code"
    git push origin main
@@ -14,6 +16,8 @@ if [[ "$yn" == "Y" || "$yn" == "y" || "$yn" == "Yes" || "$yn" == "YES" || "$yn" 
 else
  exit;
 fi
+
+server="ssh://git@darrengames.ddns.net:2402/sprungles/pkgbuilds.git"
 
 read -p "Would you like to push to GitLab?" yn
 if [[ "$yn" == "Y" || "$yn" == "y" || "$yn" == "Yes" || "$yn" == "YES" || "$yn" == "yes" ]] ; then
@@ -23,7 +27,7 @@ if [[ "$yn" == "Y" || "$yn" == "y" || "$yn" == "Yes" || "$yn" == "YES" || "$yn" 
   if [[ "$y1n" == "Y" || "$y1n" == "y" || "$y1n" == "Yes" || "$y1n" == "YES" || "$y1n" == "yes" ]] ; then
    echo "All good, moving forward"
   else
-   git remote add gitlab ssh://git@darrengames.ddns.net:2402/sprungles/pkgbuilds.git
+   git remote add gitlab $server
    git pull
    git commit -m "Generic Push. Read Commit Code"
    git push origin main
